@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <style>
+      body,html,iframe{
+        margin : 0;
+        padding : 0;
+      }
+    </style>
+
+    <script type="text/javascript">
+      var firstEp = 1;
+      var lastEp = 139;
+
+      function getRandomEpisodeIndex(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      window.onload = function prepareFrame() {
+        var frame = document.createElement("iframe");
+        frame.setAttribute("src", "https://www.youtube.com/embed/?list=PLHtUOYOPwzJHnBmX0wOOqHo5lJ4FWxEyB&autoplay=1&index=" + getRandomEpisodeIndex(firstEp, lastEp));
+        frame.setAttribute("autoplay", 1);
+        frame.setAttribute("frameborder", 0);
+        frame.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+        frame.style.width = "100%";
+        frame.style.height = "100%";
+        
+        document.getElementById("player").appendChild(frame);  
+      }
+    </script> 
+  </head>    
+
+  <body>
+    <div id=player></div>
+  </body>
+</html> 
